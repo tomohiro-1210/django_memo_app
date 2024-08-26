@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="col-md-8 mx-auto p-5">
+        <h2 style="font-weight: bold;" class="text-lg">メモリスト</h2>
+        <p style="font-weight: bold;" class="text-lg">メモリストでタスクを整理して、充実させた毎日を過ごそう</p>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    
+<a href="{% url 'create' %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">メモを新規作成</a>
+    {% for post in object_list %}
+    <div class="alert alert-{{ post.priority }} mt-4">
+        <h3 class="mb-3">{{ post.title }}  <span style="font-size: 0.75em; font-weight: normal;">期日:{{ post.duedate }}</span></h3>
+        <div>
+            <a href="{% url 'detail' post.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細を見る</a>
+            <a href="{% url 'delete' post.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除する</a>
+            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">完了にする</a>
+            <a href="{% url 'update' post.pk %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">編集する</a>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock content %}

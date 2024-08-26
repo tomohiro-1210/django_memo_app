@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="col-md-8 mx-auto p-5">
+    <h2 style="font-weight: bold;" class="text-lg">メモ詳細</h2>
+</div>
+{% endblock header %}
+
+{% block content %}
+    <div class="alert alert-{{ object.priority }} mt-4">
+        <h3 class="mb-2">{{ object.title }}</h3>
+        <p>{{ object.memo }}<p>
+    </div>
+    <a href="{% url 'list' %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">リストに戻る</a>
+{% endblock content %}

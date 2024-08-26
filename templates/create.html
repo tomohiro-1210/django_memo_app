@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="col-md-8 mx-auto p-5">
+    <h2 style="font-weight: bold;" class="text-lg">メモの登録</h2>
+</div>
+{% endblock header %}
+
+{% block content %}
+<form action="" method="POST">
+    <p style="display: none;">{% csrf_token %}</p>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">登録</button>
+</form>
+{% endblock content %}
